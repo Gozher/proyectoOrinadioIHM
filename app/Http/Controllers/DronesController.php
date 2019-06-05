@@ -41,18 +41,17 @@ class DronesController extends Controller
 
         $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
         //
-        $dron = new dron;
+        $dron = new Drones;
         $dron->Institucion = $request->input('Institucion');
         $dron->NombreRobot = $request->input('NombreRobot');
         $dron->NombreEquipo = $request->input('NombreEquipo');
         $dron->NombreCapitan = $request->input('NombreCapitan');
-
         $dron->Ronda = '0';
         $dron->Tiempo = '0.0';
         $dron->Status = 'En competencia';
         $dron->save();
 
-        return redirect('/registro/dron')->with('success', 'Stock has been added');
+        return redirect('/Drones/create')->with('success', 'Stock has been added');
     }
 
     /**

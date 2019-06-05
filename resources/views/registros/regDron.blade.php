@@ -6,7 +6,7 @@
 <h2> <p class="text-center"> registro de Manipulacion de dron</p> </h2>
   <br>
 
-    <form action="/dronsave" method="POST" role="form">
+    <form action="/Drones" method="POST" role="form">
     {{ csrf_field() }}
     <div class="row">
 
@@ -39,7 +39,7 @@
         <input class="form-control" type="text" placeholder="Nombre del robot" name="NombreCapitan">
       </div>
 
-    </div><!--findel primer row  -->
+    </div>
 
     <br>
 
