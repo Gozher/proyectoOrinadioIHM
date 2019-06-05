@@ -13,6 +13,9 @@ class Drones extends Model
         'NombreRobot', 'NombreCapitan','NombreEquipo',
          'Institucion','Ronda', 'Tiempo','Status',
 
+
+         // Huevos perro 1:55
+
     ];
     
 }
