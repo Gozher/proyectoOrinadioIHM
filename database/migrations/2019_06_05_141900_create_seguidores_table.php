@@ -15,10 +15,15 @@ class CreateSeguidoresTable extends Migration
     {
         Schema::create('Seguidores', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('NombreRobot');
             $table->string('NombreCapitan');
             $table->string('NombreEquipo');
-            $table->string('Institucion');     
+            $table->string('Institucion');
+            $table->Integer('Ronda');            
+            $table->decimal('Tiempo', 4, 4);
+            $table->string('Status');
+
             $table->timestamps();
         });
     }

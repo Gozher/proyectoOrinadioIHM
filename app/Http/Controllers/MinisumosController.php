@@ -15,6 +15,7 @@ class MinisumosController extends Controller
     public function index()
     {
         //
+        return view('resultados.resMinisumo');
     }
 
     /**

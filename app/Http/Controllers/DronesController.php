@@ -15,6 +15,7 @@ class DronesController extends Controller
     public function index()
     {
         //
+        return view('resultados.resDron');
     }
 
     /**
@@ -38,7 +39,6 @@ class DronesController extends Controller
     public function store(Request $request)
     {
         //
-
         $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
         //
         $dron = new Drones;
@@ -49,9 +49,7 @@ class DronesController extends Controller
         $dron->Ronda = '0';
         $dron->Tiempo = '0.0';
         $dron->Status = 'En competencia';
-        $dron->save();
-
-        //return redirect('/Drones/create')->with('success', 'Stock has been added');
+        $dron->save();        
         return redirect()->route('Drones.create')->with('success','Product created successfully.');
     }
 

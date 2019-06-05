@@ -9,11 +9,8 @@ class Drones extends Model
     //
     public  $table = "Drones";
     protected $fillable = [
-
         'NombreRobot', 'NombreCapitan','NombreEquipo',
-         'Institucion','Ronda', 'Tiempo','Status',
-         
-
+         'Institucion','Ronda', 'Tiempo','Status',         
     ];
     
 }
