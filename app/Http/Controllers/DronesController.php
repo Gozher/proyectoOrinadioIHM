@@ -51,7 +51,8 @@ class DronesController extends Controller
         $dron->Status = 'En competencia';
         $dron->save();
 
-        return redirect('/Drones/create')->with('success', 'Stock has been added');
+        //return redirect('/Drones/create')->with('success', 'Stock has been added');
+        return redirect()->route('Drones.create')->with('success','Product created successfully.');
     }
 
     /**
