@@ -39,6 +39,27 @@ class SumosController extends Controller
     public function store(Request $request)
     {
         //
+
+         $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
+        //
+        $sumo = new Sumos;
+        $sumo->Institucion = $request->input('Institucion');
+        $sumo->NombreRobot = $request->input('NombreRobot');
+        $sumo->NombreEquipo = $request->input('NombreEquipo');
+        $sumo->NombreCapitan = $request->input('NombreCapitan');
+        $sumo->Ronda_uno = 'Esperando rondas';
+        $sumo->Ronda_dos = 'Esperando rondas';
+        $sumo->Ronda_tres = 'Esperando rondas';
+        $sumo->Resultado_ronda = 'Esperando rondas';
+        $sumo->Status = 'En competencia';
+
+     
+        $sumo->save();    
+
+        return redirect()->route('Sumos.create')->with('success','¡Registro guardado exitosamente! :)');
+
+
+
     }
 
     /**

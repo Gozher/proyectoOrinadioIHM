@@ -1,13 +1,48 @@
 @extends('template.layout')
 
 @section('content')
+<h2> <p class="text-center">Registro para sumo</p> </h2>
+  <br>
+
+
+  @if ($errors->any())
+
+<div class="alert alert-danger">
+
+    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+
+    <ul>
+
+        @foreach ($errors->all() as $error)
+
+            <li>{{ $error }}</li>
+
+        @endforeach
+
+    </ul>
+
+</div>
+
+@endif
+
+
+@if ($message = Session::get('success'))
+
+<div class="alert alert-success">
+
+    <p>{{ $message }}</p>
+
+</div>
+
+@endif
+
 
 <div class="container-fluid">
 
-  <h2> <p class="text-center"> Registro Para Sumo</p> </h2>
+ 
   <br>
 
-    <form action= "/sumosave" method="POST" role="form">
+    <form action= "/Sumos" method="POST" role="form">
     {{ csrf_field() }}
     <div class="row">
 
