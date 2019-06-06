@@ -24,13 +24,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('products','ProductController');
 
-<<<<<<< HEAD
+
 
 Route::get('/caldrones', 'DronesController@index2');
-=======
+
 Route::resource('CalificarSumo','CalificarSumoController');
 
->>>>>>> a5cb4312633f947e97a1041cbeb907a5080e80c7
 Route::resource('Drones','DronesController');
 
 
