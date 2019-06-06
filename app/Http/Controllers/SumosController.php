@@ -15,7 +15,10 @@ class SumosController extends Controller
     public function index()
     {
         //
-        return view('resultados.resSumo');
+        $sumos_data = Sumos::latest()->paginate(5);
+        return view('calificar.calSumos',compact('sumos_data'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+       
     }
 
     /**
@@ -26,7 +29,6 @@ class SumosController extends Controller
     public function create()
     {
         //
-
         return view('registros.regSumo');
     }
 
@@ -72,7 +74,7 @@ class SumosController extends Controller
     {
         //
 
-        return view('CalificarSumo.show',compact('sumos'));
+        return view('Sumos.show',compact('sumos'));
     }
 
     /**
@@ -85,7 +87,7 @@ class SumosController extends Controller
     {
         //
 
-        return view('CalificarSumo.edit',compact('sumos'));
+        return view('Sumos.edit',compact('sumos'));
     }
 
     /**
@@ -104,7 +106,7 @@ class SumosController extends Controller
           
         ]);
         $id->update($request->all());
-        return redirect()->route('calificar.calfSumo')->with('success','Product updated successfully');
+        return redirect()->route('calificar.calSumos')->with('success','Product updated successfully');
 
     }
 
@@ -118,6 +120,6 @@ class SumosController extends Controller
     {
         //
          $product->delete(); 
-        return redirect()->route('calificar.calfSumo')->with('success','Product deleted successfully');
+        return redirect()->route('calificar.calSumos')->with('success','Product deleted successfully');
     }
 }
