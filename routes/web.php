@@ -19,16 +19,19 @@ Route::get('/inicio', function () {
     return view('welcome');
 });
 
-Route::get('/caldrones', function () {
-    return view('calificar.calDrones');
-});
-
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('products','ProductController');
 
+
+Route::get('/caldrones', 'DronesController@index2');
 Route::resource('Drones','DronesController');
+
+
+
+
+
 Route::resource('Seguidores','SeguidoresController');
 
 Route::resource('Sumos','SumosController');
