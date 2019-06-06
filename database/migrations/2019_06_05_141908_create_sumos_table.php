@@ -24,9 +24,9 @@ class CreateSumosTable extends Migration
             $table->string('Ronda_tres');
             $table->string('Resultado_ronda');
             $table->string('Status'); 
-
-
             $table->timestamps();
+
+
         });
     }
 
@@ -37,6 +37,6 @@ class CreateSumosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sumos');
+        Schema::dropIfExists('Sumos');
     }
 }

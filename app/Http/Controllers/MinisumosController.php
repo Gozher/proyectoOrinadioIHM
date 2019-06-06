@@ -26,6 +26,7 @@ class MinisumosController extends Controller
     public function create()
     {
         //
+        return view('registros.regMiniSumo');
     }
 
     /**
@@ -36,8 +37,25 @@ class MinisumosController extends Controller
      */
     public function store(Request $request)
     {
-        // comentario desde alan alan huevos
-        // Hola 5:50;
+        
+         $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
+        //
+        $minisumo = new Minosumos;
+        $minisumo->Institucion = $request->input('Institucion');
+        $minisumo->NombreRobot = $request->input('NombreRobot');
+        $minisumo->NombreEquipo = $request->input('NombreEquipo');
+        $minisumo->NombreCapitan = $request->input('NombreCapitan');
+        $minisumo->Ronda_uno = 'Esperando rondas';
+        $minisumo->Ronda_dos = 'Esperando rondas';
+        $minisumo->Ronda_tres = 'Esperando rondas';
+        $minisumo->Resultado_ronda = 'Esperando rondas';
+        $minisumo->Status = 'En competencia';
+
+     
+        $minisumo->save();    
+
+        return redirect()->route('Minisumos.create')->with('success','¡Registro guardado exitosamente! :)');
+
         
     }
 

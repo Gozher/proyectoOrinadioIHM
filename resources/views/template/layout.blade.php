@@ -63,8 +63,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Categorias</h6>
-            <a class="collapse-item" href="/registro/regSumo">ROBOT SUMO</a>
-            <a class="collapse-item" href="/registro/regMiniSumo">ROBOT MINISUMO</a>
+            <a class="collapse-item" href="/Sumos/create">ROBOT SUMO</a>
+            <a class="collapse-item" href="/Minisumos/create">ROBOT MINISUMO</a>
             <a class="collapse-item" href="/Seguidores/create">SEGUIDOR DE LINEA</a>
             <a class="collapse-item" href="/Drones/create">DRON</a>
           </div>

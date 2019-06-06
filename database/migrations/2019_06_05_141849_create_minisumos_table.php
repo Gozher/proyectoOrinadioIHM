@@ -24,6 +24,9 @@ class CreateMinisumosTable extends Migration
             $table->string('Ronda_tres');
             $table->string('Resultado_ronda');
             $table->string('Status'); 
+            $table->timestamps();
+
+  });
 
     }
 
@@ -34,6 +37,6 @@ class CreateMinisumosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('minisumos');
+        Schema::dropIfExists('Minisumos');
     }
 }
