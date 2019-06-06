@@ -15,6 +15,7 @@ class SumosController extends Controller
     public function index()
     {
         //
+        return view('resultados.resSumo');
     }
 
     /**

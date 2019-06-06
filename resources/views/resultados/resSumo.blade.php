@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Dashboard
+    resultados sumo
 
 @endsection('content')

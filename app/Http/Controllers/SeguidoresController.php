@@ -15,6 +15,7 @@ class SeguidoresController extends Controller
     public function index()
     {
         //
+        return view('resultados.resSeguidor');
     }
 
     /**
@@ -25,6 +26,7 @@ class SeguidoresController extends Controller
     public function create()
     {
         //
+        return view('registros.regSeguidor');
     }
 
     /**
@@ -34,8 +36,20 @@ class SeguidoresController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {        
         //
+        $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
+        //
+        $Seguidor = new Seguidores;
+        $Seguidor->Institucion = $request->input('Institucion');
+        $Seguidor->NombreRobot = $request->input('NombreRobot');
+        $Seguidor->NombreEquipo = $request->input('NombreEquipo');
+        $Seguidor->NombreCapitan = $request->input('NombreCapitan');
+        $Seguidor->Ronda = '0';
+        $Seguidor->Tiempo = '0.0';
+        $Seguidor->Status = 'En competencia';
+        $Seguidor->save();        
+        return redirect()->route('Seguidores.create')->with('success','Product created successfully.');
     }
 
     /**

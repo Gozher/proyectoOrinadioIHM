@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Dashboard
+    resultados seguidor
 
 @endsection('content')
