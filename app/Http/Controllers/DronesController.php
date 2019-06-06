@@ -15,11 +15,16 @@ class DronesController extends Controller
     public function index()
     {
         //
-        $drones = Drones::get();
+        $drones = Drones::get();        
         return view('resultados.resDron',compact('drones'));
+        
+    }
 
-        $dronescal = Drones::get();
-        return view('calificar.calDrones',compact('dronescal'));
+      public function index2()
+    {
+        
+        $drones = Drones::get();        
+        return view('calificar.calDrones',compact('drones'));          
     }
 
     /**
@@ -66,7 +71,8 @@ class DronesController extends Controller
      */
     public function show(Drones $drones)
     {
-        //
+        //        
+        
     }
 
     /**
