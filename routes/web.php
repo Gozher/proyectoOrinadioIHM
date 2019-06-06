@@ -26,6 +26,11 @@ Route::resource('products','ProductController');
 
 
 
+<<<<<<< HEAD
+=======
+Route::get('/caldrones', 'DronesController@index2');
+
+>>>>>>> 6e432a3ae6bbcec25f7af904e70d9068cdf85e25
 
 Route::get('/caldrones', 'DronesController@index2')->name('caldrones');
 Route::resource('Drones','DronesController');
