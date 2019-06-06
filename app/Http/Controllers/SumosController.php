@@ -71,6 +71,8 @@ class SumosController extends Controller
     public function show(Sumos $sumos)
     {
         //
+
+        return view('CalificarSumo.show',compact('sumos'));
     }
 
     /**
@@ -82,6 +84,8 @@ class SumosController extends Controller
     public function edit(Sumos $sumos)
     {
         //
+
+        return view('CalificarSumo.edit',compact('sumos'));
     }
 
     /**
@@ -94,6 +98,14 @@ class SumosController extends Controller
     public function update(Request $request, Sumos $sumos)
     {
         //
+
+         $request->validate([
+            'id' => 'required',
+          
+        ]);
+        $id->update($request->all());
+        return redirect()->route('calificar.calfSumo')->with('success','Product updated successfully');
+
     }
 
     /**
@@ -105,5 +117,7 @@ class SumosController extends Controller
     public function destroy(Sumos $sumos)
     {
         //
+         $product->delete(); 
+        return redirect()->route('calificar.calfSumo')->with('success','Product deleted successfully');
     }
 }
