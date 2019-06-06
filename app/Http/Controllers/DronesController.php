@@ -75,6 +75,7 @@ class DronesController extends Controller
     public function edit(Drones $drones)
     {
         //
+        
     }
 
     /**
@@ -87,6 +88,12 @@ class DronesController extends Controller
     public function update(Request $request, Drones $drones)
     {
         //
+        /*$request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+        ]);
+        $drones->update($request->all());
+        return redirect()->route('Drones.edit')->with('success','Product updated successfully');*/
     }
 
     /**
@@ -99,4 +106,6 @@ class DronesController extends Controller
     {
         //
     }
+
+
 }

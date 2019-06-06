@@ -19,6 +19,10 @@ Route::get('/inicio', function () {
     return view('welcome');
 });
 
+Route::get('/caldrones', function () {
+    return view('calificar.calDrones');
+});
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -107,8 +107,8 @@
             <h6 class="collapse-header">Categorias</h6>
             <a class="collapse-item" href="#">ROBOT SUMO</a>
             <a class="collapse-item" href="#">ROBOT MINISUMO</a>
-            <a class="collapse-item" href="/seguidor">SEGUIDOR DE LINEA</a>
-            <a class="collapse-item" href="/calificar/dron">DRON</a>
+            <a class="collapse-item" href="#">SEGUIDOR DE LINEA</a>
+            <a class="collapse-item" href="/caldrones">DRON</a>
           </div>
         </div>
       </li>
