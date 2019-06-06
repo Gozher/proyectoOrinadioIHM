@@ -49,7 +49,7 @@ class SeguidoresController extends Controller
         $Seguidor->Tiempo = '0.0';
         $Seguidor->Status = 'En competencia';
         $Seguidor->save();        
-        return redirect()->route('Seguidores.create')->with('success','Product created successfully.');
+        return redirect()->route('Seguidores.create')->with('success','Registro created successfully.');
     }
 
     /**

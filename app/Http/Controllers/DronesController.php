@@ -17,6 +17,9 @@ class DronesController extends Controller
         //
         $drones = Drones::get();
         return view('resultados.resDron',compact('drones'));
+
+        $dronescal = Drones::get();
+        return view('calificar.calDrones',compact('dronescal'));
     }
 
     /**
@@ -52,7 +55,7 @@ class DronesController extends Controller
         $dron->Tiempo = '0.0';
         $dron->Status = 'En competencia';
         $dron->save();        
-        return redirect()->route('Drones.create')->with('success','Product created successfully.');
+        return redirect()->route('Drones.create')->with('success','Registro created successfully.');
     }
 
     /**
@@ -75,6 +78,8 @@ class DronesController extends Controller
     public function edit(Drones $drones)
     {
         //
+        return view('calificar.calDrones',compact('drones'));
+        
     }
 
     /**
@@ -87,6 +92,12 @@ class DronesController extends Controller
     public function update(Request $request, Drones $drones)
     {
         //
+        /*$request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+        ]);*/
+        $drones->update($request->all());
+        return redirect()->route('Drones.edit')->with('success',' Updated successfully');
     }
 
     /**
@@ -99,4 +110,6 @@ class DronesController extends Controller
     {
         //
     }
+
+
 }

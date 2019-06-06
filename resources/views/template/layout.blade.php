@@ -76,11 +76,11 @@
 
       <!-- Menu de resultados -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilitiesDos" aria-expanded="true" aria-controls="collapseUtilitiesDos">
           <i class="fas fa-fw fa-wrench"></i>
           <span>resultados</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilitiesDos" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Categorias</h6>
             <a class="collapse-item" href="/Sumos">ROBOT SUMO</a>
@@ -98,17 +98,25 @@
 
       <!-- Menu de calificar -->
       <li class="nav-item">
+<<<<<<< HEAD
         <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities1" aria-expanded="true" aria-controls="collapseUtilities1">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Calificar</span>
         </a>
         <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+=======
+        <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilitiesTres" aria-expanded="true" aria-controls="collapseUtilitiesTres">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Calificar</span>
+        </a>
+        <div id="collapseUtilitiesTres" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+>>>>>>> 64c63020d56af16aa7bc00c9552847a08aebc653
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Categorias</h6>
             <a class="collapse-item" href="#">ROBOT SUMO</a>
             <a class="collapse-item" href="#">ROBOT MINISUMO</a>
-            <a class="collapse-item" href="/seguidor">SEGUIDOR DE LINEA</a>
-            <a class="collapse-item" href="/calificar/dron">DRON</a>
+            <a class="collapse-item" href="#">SEGUIDOR DE LINEA</a>
+            <a class="collapse-item" href="/caldrones">DRON</a>
           </div>
         </div>
       </li>
@@ -118,11 +126,19 @@
 
 <!--  Menu de historial-->
 <li class="nav-item">
+<<<<<<< HEAD
   <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities2">
     <i class="fas fa-fw fa-wrench"></i>
     <span>Historial</span>
   </a>
   <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+=======
+  <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilitiesCuatro" aria-expanded="true" aria-controls="collapseUtilitiesCuatro">
+    <i class="fas fa-fw fa-wrench"></i>
+    <span>Historial</span>
+  </a>
+  <div id="collapseUtilitiesCuatro" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+>>>>>>> 64c63020d56af16aa7bc00c9552847a08aebc653
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Categorias</h6>
       <a class="collapse-item" href="#">ROBOT SUMO</a>
