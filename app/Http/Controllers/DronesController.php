@@ -52,7 +52,7 @@ class DronesController extends Controller
         $dron->Tiempo = '0.0';
         $dron->Status = 'En competencia';
         $dron->save();        
-        return redirect()->route('Drones.create')->with('success','Product created successfully.');
+        return redirect()->route('Drones.create')->with('success','Registro created successfully.');
     }
 
     /**
