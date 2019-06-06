@@ -17,6 +17,9 @@ class DronesController extends Controller
         //
         $drones = Drones::get();
         return view('resultados.resDron',compact('drones'));
+
+        $dronescal = Drones::get();
+        return view('calificar.calDrones',compact('dronescal'));
     }
 
     /**
@@ -75,6 +78,7 @@ class DronesController extends Controller
     public function edit(Drones $drones)
     {
         //
+        return view('calificar.calDrones',compact('drones'));
         
     }
 
@@ -91,9 +95,9 @@ class DronesController extends Controller
         /*$request->validate([
             'name' => 'required',
             'detail' => 'required',
-        ]);
+        ]);*/
         $drones->update($request->all());
-        return redirect()->route('Drones.edit')->with('success','Product updated successfully');*/
+        return redirect()->route('Drones.edit')->with('success',' Updated successfully');
     }
 
     /**

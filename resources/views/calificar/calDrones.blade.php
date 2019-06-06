@@ -2,7 +2,7 @@
 
 @section('content')
 
-<center> <h1>Calificar Drones</h1></center>
+<center> <h1>Resultados de drones</h1></center>
 <hr>
 
 <table class="table table-striped">
@@ -17,15 +17,15 @@
   </thead>
   <tbody>
 
-
+  @foreach($dronescal as $dron)
     <tr>
-      <th>v</th>
-      <td>v</td>
-      <td>v</td>
-      <td>v</td>
-      <td>v</td>
+      <th>{{$dron->NombreRobot}}</th>
+      <td>{{$dron->Institucion}}</td>
+      <td>{{$dron->Ronda}}</td>
+      <td>{{$dron->Tiempo}}</td>
+      <td>{{$dron->Status}}</td>
     </tr>    
-    
+    @endforeach
   </tbody>
 </table>
 
