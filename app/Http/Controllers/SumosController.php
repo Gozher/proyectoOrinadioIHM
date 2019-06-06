@@ -25,6 +25,8 @@ class SumosController extends Controller
     public function create()
     {
         //
+
+        return view('registros.regSumo');
     }
 
     /**

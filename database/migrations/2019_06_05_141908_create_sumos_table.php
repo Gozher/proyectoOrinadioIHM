@@ -18,7 +18,14 @@ class CreateSumosTable extends Migration
             $table->string('NombreRobot');
             $table->string('NombreCapitan');
             $table->string('NombreEquipo');
-            $table->string('Institucion');     
+            $table->string('Institucion'); 
+            $table->string('Ronda_uno');
+            $table->string('Ronda_dos');
+            $table->string('Ronda_tres');
+            $table->string('Resultado_ronda');
+            $table->string('Status'); 
+
+
             $table->timestamps();
         });
     }
