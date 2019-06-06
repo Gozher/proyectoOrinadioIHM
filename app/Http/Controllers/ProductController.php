@@ -68,7 +68,10 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-        return view('products.edit',compact('product'));
+        //return view('products.edit',compact('product'));
+
+        $dron = User::find($product);
+         return View::make('users.show')->with('user', $user);
     }
 
     /**
