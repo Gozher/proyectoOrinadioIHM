@@ -36,7 +36,7 @@ class MinisumosController extends Controller
      */
     public function store(Request $request)
     {
-        // comentario desde alan alan 
+        // comentario desde alan alan huevos
         
     }
 
