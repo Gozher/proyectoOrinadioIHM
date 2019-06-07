@@ -25,9 +25,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('products','ProductController');
 
 
+
 Route::get('/caldrones', 'DronesController@index2');
 
-Route::resource('CalificarSumo','CalificarSumoController');
 
 Route::resource('Drones','DronesController');
 
