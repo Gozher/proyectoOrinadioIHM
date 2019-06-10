@@ -49,8 +49,12 @@ $c=0;
                 
                     
                       
+<<<<<<< HEAD
                     <th>Es</th> 
                     <th>Id</th>
+=======
+                    <th>Action</th> 
+>>>>>>> fc4986c3223b256f0ece055f39a66bfe59133c47
                     <th>Escuela</th>
                     <th>Nombre del robot</th>
                     

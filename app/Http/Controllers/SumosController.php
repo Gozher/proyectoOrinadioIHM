@@ -140,9 +140,20 @@ class SumosController extends Controller
     {
         
 
+<<<<<<< HEAD
         //aqui vas a meter un store
 
          Sumos::find($id)->update($request->all());
+=======
+      // $request->validate( ['id' => 'required'] );
+
+     //  $datos_sumo=request();
+       Sumos::where('id','=', $id) ->update($request->except('_token','_method'));  
+       $sumos_data=Sumos::findOrFail($id); 
+       //Sumos::find($id)->update($request->all());   
+
+        return view('editar.editSumos',compact('sumos_data') );
+>>>>>>> fc4986c3223b256f0ece055f39a66bfe59133c47
 
         return redirect()->route('Sumos.index')->with('success',' Updated successfully');
 
