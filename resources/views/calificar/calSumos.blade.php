@@ -49,7 +49,7 @@ $c=0;
                 
                     
                       
-                    <th>Es</th> 
+                    <th>Action</th> 
                     <th>Escuela</th>
                     <th>Nombre del robot</th>
                     

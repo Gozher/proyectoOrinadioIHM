@@ -27,16 +27,16 @@ Route::resource('products','ProductController');
 
 
 
-<<<<<<< HEAD
+
 Route::get('/caldrones', 'DronesController@index2');
 
 
 
 Route::get('/caldrones', 'DronesController@index2')->name('caldrones');
-=======
+
 Route::get('/resDrones', 'DronesController@index2');
 Route::post('/resDronesPost', 'DronesController@index2');
->>>>>>> b23b09c9feee6084c54eedc04e0c5952b12d4a16
+
 Route::resource('Drones','DronesController');
 
 

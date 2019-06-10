@@ -123,7 +123,7 @@ class SumosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
 
       // $request->validate( ['id' => 'required'] );
 
@@ -131,8 +131,6 @@ class SumosController extends Controller
        Sumos::where('id','=', $id) ->update($request->except('_token','_method'));  
        $sumos_data=Sumos::findOrFail($id); 
        //Sumos::find($id)->update($request->all());   
-
-
 
         return view('editar.editSumos',compact('sumos_data') );
 
