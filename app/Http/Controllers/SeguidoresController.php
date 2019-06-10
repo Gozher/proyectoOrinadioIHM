@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Seguidores;
+use App\Hseguidores;
 use Illuminate\Http\Request;
 
 class SeguidoresController extends Controller
@@ -15,7 +16,27 @@ class SeguidoresController extends Controller
     public function index()
     {
         //
-        return view('resultados.resSeguidor');
+        //return view('resultados.resSeguidor');
+        $seguidores = Seguidores:: 
+          orderBy('Tiempo')
+        ->where('Status','En competencia')
+        ->get();        
+        return view('calificar.calSeguidor',compact('seguidores'));  
+    }
+
+
+    public function index2(Request $request)
+    {
+        
+        //return view('resultados.resSeguidor');            
+        $cantidad = $request->input("cantidad");
+        $seguidores = Seguidores::        
+          where('Ronda',"=",$cantidad)
+        ->where('Status','En competencia')
+        ->orderBy('Tiempo')
+        ->get();    
+
+        return view('resultados.resSeguidor',compact('seguidores'));
     }
 
     /**
@@ -48,7 +69,22 @@ class SeguidoresController extends Controller
         $Seguidor->Ronda = '0';
         $Seguidor->Tiempo = '0.0';
         $Seguidor->Status = 'En competencia';
-        $Seguidor->save();        
+        $Seguidor->save();   
+
+
+        $hseguidor = new Hseguidores;
+        $hseguidor->Institucion = $request->input('Institucion');
+        $hseguidor->NombreRobot = $request->input('NombreRobot');
+        $hseguidor->NombreEquipo = $request->input('NombreEquipo');
+        $hseguidor->NombreCapitan = $request->input('NombreCapitan');
+        $hseguidor->Ronda = '0';
+        $hseguidor->Tiempo = '0.0';
+        $hseguidor->Status = 'En competencia';
+        $hseguidor->save();  
+
+
+
+
         return redirect()->route('Seguidores.create')->with('success','Registro created successfully.');
     }
 
@@ -69,9 +105,11 @@ class SeguidoresController extends Controller
      * @param  \App\Seguidores  $seguidores
      * @return \Illuminate\Http\Response
      */
-    public function edit(Seguidores $seguidores)
+    public function edit($id)
     {
         //
+         $seguidores = Seguidores::find($id);
+        return view('editar.editSeguidor', compact('seguidores'));
     }
 
     /**
@@ -81,9 +119,24 @@ class SeguidoresController extends Controller
      * @param  \App\Seguidores  $seguidores
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Seguidores $seguidores)
+    public function update(Request $request, $id)
     {
         //
+
+        $hseguidor = new Hseguidores;
+        $hseguidor->Institucion = $request->input('Institucion');
+        $hseguidor->NombreRobot = $request->input('NombreRobot');
+        $hseguidor->NombreEquipo = $request->input('NombreEquipo');
+        $hseguidor->NombreCapitan = $request->input('NombreCapitan');
+        $hseguidor->Ronda = $request->input('Ronda');
+        $hseguidor->Tiempo = $request->input('Tiempo');
+        $hseguidor->Status = $request->input('Status');
+        $hseguidor->save(); 
+
+
+         Seguidores::find($id)->update($request->all());
+
+        return redirect()->route('Seguidores.index')->with('success',' Updated successfully');
     }
 
     /**

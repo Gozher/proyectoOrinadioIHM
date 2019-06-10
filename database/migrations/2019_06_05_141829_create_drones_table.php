@@ -21,7 +21,7 @@ class CreateDronesTable extends Migration
             $table->string('NombreEquipo');
             $table->string('Institucion');
             $table->Integer('Ronda');            
-            $table->decimal('Tiempo', 4, 4);
+            $table->string('Tiempo');
             $table->string('Status');
 
             $table->timestamps();

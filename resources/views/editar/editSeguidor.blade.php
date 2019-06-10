@@ -6,9 +6,8 @@
 
 
 <div class="row">
-
-          <!--<form action="{{ route('Drones.update',$drones->id) }}" method="POST">-->
-          	<form action="{{ route('Drones.update',$drones->id) }}" method="POST">
+        
+          	<form action="{{ route('Seguidores.update',$seguidores   ->id) }}" method="POST">
           		@csrf
 
 				@method('PUT')
@@ -17,35 +16,35 @@
               <div class="form-group">
                 <label for="formGroupExampleInput">Nombre robot</label>
                 <input type="text" class="form-control" name="NombreRobot" placeholder="" 
-                value="{{$drones->NombreRobot}}" readonly="readonly">
+                value="{{$seguidores->NombreRobot}}" readonly="readonly">
               </div>
 
                 <div class="form-group">
                 <label for="formGroupExampleInput">Nombre capitan</label>
                 <input type="text" class="form-control" name="NombreCapitan" placeholder=""
-                value="{{$drones->NombreCapitan}}" readonly="readonly">
+                value="{{$seguidores->NombreCapitan}}" readonly="readonly">
               </div>
 
                 <div class="form-group">
                 <label for="formGroupExampleInput">Nombre equipo</label>
                 <input type="text" class="form-control" name="NombreEquipo" placeholder=""
-                value="{{$drones->NombreEquipo}}" readonly="readonly">
+                value="{{$seguidores->NombreEquipo}}" readonly="readonly">
               </div>
 
                 <div class="form-group">
                 <label for="formGroupExampleInput">institucion</label>
                 <input type="text" class="form-control" name="Institucion" placeholder=""
-                value="{{$drones->Institucion}}" readonly="readonly">
+                value="{{$seguidores->Institucion}}" readonly="readonly">
               </div>
 
                 <div class="form-group">
                 <label for="formGroupExampleInput">Ronda</label>
-                <input type="Number" min="1" pattern="^[0-9]+" class="form-control" name="Ronda" value="{{$drones->Ronda}}">
+                <input type="Number" min="1" pattern="^[0-9]+" class="form-control" name="Ronda" value="{{$seguidores->Ronda}}" >
               </div>
 
                 <div class="form-group">
                 <label for="formGroupExampleInput">Tiempo</label>
-                <input type="Number" min="1" pattern="^[0-9]+" class="form-control" name="Tiempo" value="{{$drones->Tiempo}}" step="any">
+                <input type="Number" min="1" pattern="^[0-9]+" class="form-control" name="Tiempo" value="{{$seguidores->Tiempo}}" step="any">
               </div>
 
       <div class="form-group">
@@ -65,9 +64,4 @@
 
         </div>
 
-
-
-
-
-        @endsection('content')
-
+@endsection('content')

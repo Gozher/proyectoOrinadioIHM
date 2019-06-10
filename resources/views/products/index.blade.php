@@ -54,7 +54,7 @@
 
 <tr>
 
-    <td>{{ ++$i }}</td>
+    <td>{{ $product->id }}</td>
 
     <td>{{ $product->name }}</td>
 

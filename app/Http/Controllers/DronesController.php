@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Drones;
+use App\Hdron;
 use Illuminate\Http\Request;
 
 class DronesController extends Controller
@@ -14,17 +15,33 @@ class DronesController extends Controller
      */
     public function index()
     {
-        //
-        $drones = Drones::get();        
-        return view('resultados.resDron',compact('drones'));
+        
+        //$drones = Drones::get();        
+        //$drones = Drones::latest()->paginate(5);
+        $drones = Drones:: 
+          orderBy('Tiempo')
+        ->where('Status','En competencia')
+        ->get();        
+        return view('calificar.calDrones',compact('drones'));   
+
+
+                                
         
     }
 
-      public function index2()
+      public function index2(Request $request)
     {
         
-        $drones = Drones::get();        
-        return view('calificar.calDrones',compact('drones'));          
+        
+        $cantidad = $request->input("cantidad");
+        $drones = Drones::        
+          where('Ronda',"=",$cantidad)
+        ->where('Status','En competencia')
+        ->orderBy('Tiempo')
+        ->get();    
+
+        return view('resultados.resDron',compact('drones'));
+         //return redirect()->route('/resDrones');
     }
 
     /**
@@ -59,7 +76,21 @@ class DronesController extends Controller
         $dron->Ronda = '0';
         $dron->Tiempo = '0.0';
         $dron->Status = 'En competencia';
-        $dron->save();        
+        $dron->save();  
+
+        $hdron = new Hdron;
+        $hdron->Institucion = $request->input('Institucion');
+        $hdron->NombreRobot = $request->input('NombreRobot');
+        $hdron->NombreEquipo = $request->input('NombreEquipo');
+        $hdron->NombreCapitan = $request->input('NombreCapitan');
+        $hdron->Ronda = '0';
+        $hdron->Tiempo = '0.0';
+        $hdron->Status = 'En competencia';
+        $hdron->save();  
+
+
+
+
         return redirect()->route('Drones.create')->with('success','Registro created successfully.');
     }
 
@@ -81,14 +112,14 @@ class DronesController extends Controller
      * @param  \App\Drones  $drones
      * @return \Illuminate\Http\Response
      */
-    public function edit(Drones $drones)
+    public function edit($id)
     {
         //
-        return view('editar.editDron',compact('drones'));
+        //return view('editar.editDron',compact('drones'));
 
-        //   $dron = Drones::find($drones);           
-      //     return view('editar.editDron')->with('dron', $dron);;
-              //return View::make('editar.editDron')->with('dron', $dron);
+         $drones = Drones::find($id);
+        return view('editar.editDron', compact('drones'));
+
         
     }
 
@@ -99,15 +130,23 @@ class DronesController extends Controller
      * @param  \App\Drones  $drones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Drones $drones)
+    public function update(Request $request, $id)
     {
-        //
-        /*$request->validate([
-            'name' => 'required',
-            'detail' => 'required',
-        ]);*/
-        $drones->update($request->all());
-        return redirect()->route('caldrones')->with('success',' Updated successfully');
+        $hdron = new Hdron;
+        $hdron->Institucion = $request->input('Institucion');
+        $hdron->NombreRobot = $request->input('NombreRobot');
+        $hdron->NombreEquipo = $request->input('NombreEquipo');
+        $hdron->NombreCapitan = $request->input('NombreCapitan');
+        $hdron->Ronda = $request->input('Ronda');
+        $hdron->Tiempo = $request->input('Tiempo');
+        $hdron->Status = $request->input('Status');
+        $hdron->save(); 
+
+        //$drones->update($request->all());
+
+         Drones::find($id)->update($request->all());
+
+        return redirect()->route('Drones.index')->with('success',' Updated successfully');
     }
 
     /**
