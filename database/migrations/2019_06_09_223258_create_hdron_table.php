@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeguidoresTable extends Migration
+class CreateHdronTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateSeguidoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('Seguidores', function (Blueprint $table) {
+        Schema::create('hdron', function (Blueprint $table) {
             $table->increments('id');
+
 
             $table->string('NombreRobot');
             $table->string('NombreCapitan');
@@ -23,7 +24,7 @@ class CreateSeguidoresTable extends Migration
             $table->Integer('Ronda');            
             $table->string('Tiempo');
             $table->string('Status');
-
+            
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreateSeguidoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seguidores');
+        Schema::dropIfExists('hdron');
     }
 }

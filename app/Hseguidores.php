@@ -4,13 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Drones extends Model
+class Hseguidores extends Model
 {
     //
-    public  $table = "Drones";
+    public  $table = "Hseguidores";
     protected $fillable = [
         'NombreRobot','id', 'NombreCapitan','NombreEquipo',
          'Institucion','Ronda', 'Tiempo','Status',         
     ];
-    
 }

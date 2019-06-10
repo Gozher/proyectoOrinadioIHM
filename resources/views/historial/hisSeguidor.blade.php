@@ -2,14 +2,14 @@
 
 @section('content')
 
-<center> <h1>Resultados de drones</h1></center>
+<center> <h1>Historial por ronda de Seguidores</h1></center>
 <hr>
 
 <div class="row">
   <div class="col-sm-3">
 
 
-    <form action="/resDronesPost" method="post">
+    <form action="/Hseguidor" method="post">
         {{ csrf_field() }}
 
       <div class="form-group">
@@ -34,6 +34,7 @@
     </form>
 </div>
 
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -46,13 +47,13 @@
   </thead>
   <tbody>
 
-  @foreach($drones as $dron)
+  @foreach($seguidores as $seguidor)
     <tr>
-      <th>{{$dron->NombreRobot}}</th>
-      <td>{{$dron->Institucion}}</td>
-      <td>{{$dron->Ronda}}</td>
-      <td>{{$dron->Tiempo}}</td>
-      <td>{{$dron->Status}}</td>
+      <th>{{$seguidor->NombreRobot}}</th>
+      <td>{{$seguidor->Institucion}}</td>
+      <td>{{$seguidor->Ronda}}</td>
+      <td>{{$seguidor->Tiempo}}</td>
+      <td>{{$seguidor->Status}}</td>
     </tr>    
     @endforeach
   </tbody>

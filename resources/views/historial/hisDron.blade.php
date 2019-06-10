@@ -2,14 +2,14 @@
 
 @section('content')
 
-<center> <h1>Resultados de drones</h1></center>
+<center> <h1>Historial por ronda de drones</h1></center>
 <hr>
 
 <div class="row">
   <div class="col-sm-3">
 
 
-    <form action="/resDronesPost" method="post">
+    <form action="/Hdrones" method="post">
         {{ csrf_field() }}
 
       <div class="form-group">
@@ -33,6 +33,7 @@
 
     </form>
 </div>
+
 
 <table class="table table-striped">
   <thead>

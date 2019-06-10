@@ -30,8 +30,10 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/inicio">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <div class="sidebar-brand-icon rotate-n-1">
+          <br>
+          <img src="{{asset('img/logo.jpeg')}}" width="80" height="75">
+          <br>
         </div>
         <div class="sidebar-brand-text mx-3">Concurso Robotica</div>
       </a>
@@ -41,8 +43,10 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
+        <br>
         <a class="nav-link" href="/inicio">
           <i class="fas fa-fw fa-tachometer-alt"></i>
+
           <span>HOME</span></a>
       </li>
 
@@ -85,8 +89,8 @@
             <h6 class="collapse-header">Categorias</h6>
             <a class="collapse-item" href="/Sumos">ROBOT SUMO</a>
             <a class="collapse-item" href="/Minisumos ">ROBOT MINISUMO</a>
-            <a class="collapse-item" href="/Seguidores">SEGUIDOR DE LINEA</a>
-            <a class="collapse-item" href="/Drones ">DRON</a>
+            <a class="collapse-item" href="/resSeguidores">SEGUIDOR DE LINEA</a>
+            <a class="collapse-item" href="/resDrones">DRON</a>
           </div>
         </div>
       </li>
@@ -108,8 +112,8 @@
             <h6 class="collapse-header">Categorias</h6>
             <a class="collapse-item" href="#">ROBOT SUMO</a>
             <a class="collapse-item" href="#">ROBOT MINISUMO</a>
-            <a class="collapse-item" href="#">SEGUIDOR DE LINEA</a>
-            <a class="collapse-item" href="/caldrones">DRON</a>
+            <a class="collapse-item" href="/Seguidores">SEGUIDOR DE LINEA</a>
+            <a class="collapse-item" href="/Drones">DRON</a>
           </div>
         </div>
       </li>
@@ -117,7 +121,7 @@
    <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Menu de calificar -->
+      <!-- Menu de historial -->
       <li class="nav-item">
 
         <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilitiesCuatro" aria-expanded="true" aria-controls="collapseUtilitiesCuatro">
@@ -129,8 +133,8 @@
             <h6 class="collapse-header">Categorias</h6>
             <a class="collapse-item" href="#">ROBOT SUMO</a>
             <a class="collapse-item" href="#">ROBOT MINISUMO</a>
-            <a class="collapse-item" href="#">SEGUIDOR DE LINEA</a>
-            <a class="collapse-item" href="#">DRON</a>
+            <a class="collapse-item" href="/Hseguidores">SEGUIDOR DE LINEA</a>
+            <a class="collapse-item" href="/Hdron">DRON</a>
           </div>
         </div>
       </li>

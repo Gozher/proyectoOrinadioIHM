@@ -26,7 +26,8 @@
       <td>{{$dron->Tiempo}}</td>
       <td>{{$dron->Status}}</td>
       <td>
-            <a class="btn btn-primary"  href="{{route('Drones.edit',$dron->id)}}">Calificar</a>
+            <!--<a class="btn btn-primary"  href="{{ route('Drones.edit',$dron->id) }}">Calificar</a>-->
+            <a class="btn btn-primary"  href="Drones/{{$dron->id}}/edit">Calificar</a>
 
             
       </td>
