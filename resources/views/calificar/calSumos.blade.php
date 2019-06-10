@@ -1,111 +1,168 @@
+
+<?php
+
+$c=0; 
+
+
+        foreach ($grupo_a as $v) 
+
+            {
+
+                $c = $c + 1;
+
+            }
+                    
+
+                $var_a = $c / 2; 
+                
+        
+        if ($c%2==1)
+                {    
+                   
+                    $var_a = $var_a + 0.5;
+
+                }
+
+
+?>
+
+
+
 @extends('template.layout')
 
 @section('content')
 
+
+
+
+<h2> <p class="text-center"> Roles para sumo </p> </h2>
+
+
 <div class="row">
 
-<div class="col-lg-12 margin-tb">
+<div class="col-md-6">
 
-    <div class="pull-center">
 
-       <center> <h2>Calificar Sumos</h2> </center>>
+        <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                
+                    
+                      
+                    <th>Es</th> 
+                    <th>Escuela</th>
+                    <th>Nombre del robot</th>
+                    
+            
+                </tr>
+            </thead>
+            <tbody>
 
-    </div>
+           
 
-  
+            <?php   $ca=0;    ?>
 
+
+            @foreach($grupo_a as $lista)
+
+                @if( $ca < $var_a )
+
+                
+                        <tr>
+
+
+                     <td> <a href="Sumos/{{$lista->id}}/edit">  Calificar  </a>  </td>
+                    
+                        
+                        <td>{{ $lista->Institucion }}</td> 
+                        <td>{{ $lista->NombreRobot }}</td> 
+                      
+                        
+                        
+                            
+                            
+                        </tr>
+
+                        <?php  $ca = $ca + 1;   ?>
+
+                  
+
+                @endif
+
+               
+
+            @endforeach
+                
+        </tbody>
+        </table>
 </div>
 
-</div>
+<div class="col-md-6">
+
+            <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                
+                <th width="100px">Action</th>
+                <th>Nombre del robot</th>
+                <th>Escuela</th>
+                
+                
+                    
+                    
+                   
+                    
+                    <th> </th>
+            
+                </tr>
+            </thead>
+            <tbody>
+
+
+            @foreach($grupo_b as $lista)
+
+                   
+                @if ($loop->iteration > $ca)
+    
+
+                    <tr>
+                    
+    <td> <a href="Sumos/{{$lista->id}}/edit">  Calificar  </a>  </td>
+
+
+                   
+                    <td>{{ $lista->NombreRobot }}</td> 
+                    <td>{{ $lista->Institucion }}</td> 
+
+                   
+       
+ 
 
 
 
-@if ($message = Session::get('success'))
+                       
+                    </tr>
 
-<div class="alert alert-success">
 
-    <p>{{ $message }}</p>
+                @endif
 
-</div>
+
+            @endforeach
+
+
+          
+
+</tbody>
+</table>
+
+@if ($c%2==1)
+
+    Pasa a la siguiente ronda 
 
 @endif
 
 
-
-<table class="table table-bordered">
-
-<tr>
-
-    <th>No</th>
-
-    <th>Name</th>
-
-    <th>Details</th>
-
-    <th width="280px">Action</th>
-
-</tr>
-
-@foreach ($sumos_data as $sumo)
-
-<tr>
-
-    <td>{{ ++$i }}</td>
-
-    <td>{{ $sumo->NombreRobot }}</td>
-
-    <td>{{ $sumo->Institucion }}</td>
-
-    <td>
-
-       < <form action="{{ route('Sumos.destroy',$sumo->id) }}" method="POST"> 
-
-          <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" href="{{route('Sumos.edit',$Sumos->id)}}">Calffff</a>
-
-            <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+</div>
 </div>
 
-
-
-
-           
-        </form> 
-
-    </td>
-
-</tr>
-
-@endforeach
-
-</table>
-
-
-
-{!! $sumos_data->links() !!}
-
-
-
-
-
 @endsection
-
-
-

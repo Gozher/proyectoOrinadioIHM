@@ -15,8 +15,25 @@ class SumosController extends Controller
     public function index()
     {
         //
-        $sumos_data = Sumos::latest()->paginate(5);
-        return view('calificar.calSumos',compact('sumos_data'))->with('i', (request()->input('page', 1) - 1) * 5);
+      //  $sumos_data = Sumos::latest()->paginate(5);
+     //   return view('calificar.calSumos',compact('sumos_data'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+          $grupo_a = \DB::table('sumos')
+        -> select('NombreRobot','Institucion','id','Status')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get();
+
+
+
+        $grupo_b = \DB::table('sumos')
+        -> select('NombreRobot','Institucion','id','Status')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get(); 
+
+        return view('calificar.calSumos', compact('grupo_a','grupo_b'));
 
        
     }
@@ -74,7 +91,7 @@ class SumosController extends Controller
     {
         //
 
-        return view('Sumos.show',compact('sumos'));
+        return view('editar.editSumos',compact('sumos'));
     }
 
     /**
@@ -83,11 +100,18 @@ class SumosController extends Controller
      * @param  \App\Sumos  $sumos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sumos $sumos)
+    public function edit($id)
     {
         //
 
-        return view('Sumos.edit',compact('sumos'));
+        //return view('Sumos.show',compact('sumos'));
+
+        
+
+        $sumos_data= Sumos::findOrFail($id);  
+
+        return view('editar.editSumos',compact('sumos_data') );
+        
     }
 
     /**
@@ -97,16 +121,22 @@ class SumosController extends Controller
      * @param  \App\Sumos  $sumos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sumos $sumos)
+    public function update(Request $request, $id)
     {
         //
 
-         $request->validate([
-            'id' => 'required',
-          
-        ]);
-        $id->update($request->all());
-        return redirect()->route('calificar.calSumos')->with('success','Product updated successfully');
+      // $request->validate( ['id' => 'required'] );
+
+     //  $datos_sumo=request();
+       Sumos::where('id','=', $id) ->update($request->except('_token','_method'));  
+       $sumos_data=Sumos::findOrFail($id); 
+       //Sumos::find($id)->update($request->all());   
+
+
+
+        return view('editar.editSumos',compact('sumos_data') );
+
+         return view('calificar.calSumos');
 
     }
 
