@@ -87,7 +87,7 @@
         <div id="collapseUtilitiesDos" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Categorias</h6>
-            <a class="collapse-item" href="/Sumos">ROBOT SUMO</a>
+            <a class="collapse-item" href="/resSumos">ROBOT SUMO</a>
             <a class="collapse-item" href="/Minisumos ">ROBOT MINISUMO</a>
             <a class="collapse-item" href="/resSeguidores">SEGUIDOR DE LINEA</a>
             <a class="collapse-item" href="/resDrones">DRON</a>
@@ -110,7 +110,7 @@
         <div id="collapseUtilitiesTres" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Categorias</h6>
-            <a class="collapse-item" href="#">ROBOT SUMO</a>
+            <a class="collapse-item" href="/Sumos">ROBOT SUMO</a>
             <a class="collapse-item" href="#">ROBOT MINISUMO</a>
             <a class="collapse-item" href="/Seguidores">SEGUIDOR DE LINEA</a>
             <a class="collapse-item" href="/Drones">DRON</a>

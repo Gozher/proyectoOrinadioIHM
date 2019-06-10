@@ -11,6 +11,6 @@ class Sumos extends Model
 
     protected $fillable = [
         'NombreRobot', 'NombreCapitan','NombreEquipo',
-         'Institucion','Ronda_uno','Ronda_dos', 'Ronda_tres','Status','Resultado_ronda' ];
+         'Institucion','Status','Ronda','id' ];
 
 }

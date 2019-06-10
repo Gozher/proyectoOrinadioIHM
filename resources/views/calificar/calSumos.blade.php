@@ -50,6 +50,7 @@ $c=0;
                     
                       
                     <th>Es</th> 
+                    <th>Id</th>
                     <th>Escuela</th>
                     <th>Nombre del robot</th>
                     
@@ -71,9 +72,10 @@ $c=0;
                         <tr>
 
 
-                     <td> <a href="Sumos/{{$lista->id}}/edit">  Calificar  </a>  </td>
-                    
-                        
+                        <td> 
+                          <a href="Sumos/{{$lista->id}}/edit">Calificar</a>
+                        </td>                                            
+                        <td>{{ $lista->id }}</td> 
                         <td>{{ $lista->Institucion }}</td> 
                         <td>{{ $lista->NombreRobot }}</td> 
                       
@@ -103,14 +105,12 @@ $c=0;
             <thead class="thead-light">
                 <tr>
                 
-                <th width="100px">Action</th>
-                <th>Nombre del robot</th>
+                <th>Action</th>
+                <th>Id</th>
                 <th>Escuela</th>
+                <th>Nombre del robot</th>
                 
-                
-                    
-                    
-                   
+                                                                                    
                     
                     <th> </th>
             
@@ -127,20 +127,15 @@ $c=0;
 
                     <tr>
                     
-    <td> <a href="Sumos/{{$lista->id}}/edit">  Calificar  </a>  </td>
-
-
-                   
+                    <td>
+                      <a href="Sumos/{{$lista->id}}/edit">  Calificar  </a>  
+                    </td>
+                    <td>{{ $lista->id }}</td> 
+                    <td>{{ $lista->Institucion }}</td>   
                     <td>{{ $lista->NombreRobot }}</td> 
-                    <td>{{ $lista->Institucion }}</td> 
-
-                   
-       
- 
+                                  
 
 
-
-                       
                     </tr>
 
 
