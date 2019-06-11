@@ -180,7 +180,7 @@ class SumosController extends Controller
         return redirect()->route('calificar.calSumos')->with('success','Product deleted successfully');
     }
 
-<<<<<<< HEAD
+
 
  public function datos_pdf_a( )
     {
@@ -265,9 +265,5 @@ class SumosController extends Controller
 
     }
 
-
-=======
-  
->>>>>>> 6fc27f3e9b4604ab188e427586b0a01d788080a6
 
 }
