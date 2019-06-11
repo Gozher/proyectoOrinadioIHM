@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+
+
+return view('auth.login');
+
 });
 
 Route::get('/inicio', function () {
@@ -58,4 +61,20 @@ Route::resource('Hseguidores','HseguidoresController');
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+
+Route::get('pdf', function () {
+   
+	
+$pdf=PDF::loadView('registros.regSumo');
+
+	
+	return $pdf->download();
+
+
+});
+
+
+
+
 
