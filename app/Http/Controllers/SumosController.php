@@ -167,4 +167,13 @@ class SumosController extends Controller
          $product->delete(); 
         return redirect()->route('calificar.calSumos')->with('success','Product deleted successfully');
     }
+
+  public function pdf(Sumos $sumos)
+    {
+        //
+         return 'exportar ';  
+    }
+
+
+
 }

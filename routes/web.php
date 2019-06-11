@@ -71,20 +71,9 @@ Route::resource('Hminisumo','HminisumoController');
 
 
 
-
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
-
-Route::get('pdf', function () {
-   
-	
-$pdf=PDF::loadView('registros.regSumo');
-
-	
-	return $pdf->download();
+Route::get('/sumo-pdf','SumosController@pdf')->name('roles.pdf');
 
 
-});
 
 
 
