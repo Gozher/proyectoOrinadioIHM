@@ -163,8 +163,8 @@
   <div id="collapseUtilitiesCinco" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Categorias</h6>
-      <a class="collapse-item" href="Hdron/create">Respaldo</a>            
-      <a class="collapse-item" href="#">Vaciar BD</a>            
+      <a class="collapse-item" href="#">Respaldo</a>            
+      <a class="collapse-item" href="/eliminar">Vaciar BD</a>            
     </div>
   </div>
 </li>

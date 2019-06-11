@@ -91,25 +91,7 @@
 
       <div class="col-sm-1"></div>
 
-<div class="form-group">
- <label for="exampleFormControlSelect1"><h6> ¿Pesa menos de dos kilos? </h6></label>
-     <select class="form-control" id="exampleFormControlSelect1" name="Peso">
-     <option>Si</option>
-     <option>No</option>
-     
-     </select>
-</div>
 
-<div class="col-sm-1"></div>
-
-<div class="form-group">
- <label for="exampleFormControlSelect1"><h5> ¿Mide menos de 20x20 cm? </h5></label>
-     <select class="form-control" id="exampleFormControlSelect1" name="Dimensiones">
-     <option>Si</option>
-     <option>No</option>
-     
-     </select>
-</div>
 
 
       <div class="col-sm-3"></div>
