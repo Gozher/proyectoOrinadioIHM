@@ -57,6 +57,7 @@
       <div class="sidebar-heading">
         Menu principal
       </div>
+      @if(Auth::user()->id == 1 || Auth::user()->id == 2)
 
       <!-- Menu de registro-->
       <li class="nav-item">
@@ -74,7 +75,10 @@
           </div>
         </div>
       </li>
+      @endif
 
+
+      @if(Auth::user()->id == 1 || Auth::user()->id == 2)
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -94,9 +98,10 @@
           </div>
         </div>
       </li>
+      @endif
 
 
-
+      @if(Auth::user()->id == 3 || Auth::user()->id == 2)
       <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -117,7 +122,10 @@
           </div>
         </div>
       </li>
+      @endif
 
+
+      @if(Auth::user()->id == 4 || Auth::user()->id == 2)
    <!-- Divider -->
       <hr class="sidebar-divider">
 
@@ -138,7 +146,29 @@
           </div>
         </div>
       </li>
+      @endif
 
+
+      @if(Auth::user()->id == 2)
+   <!-- Divider -->
+   <hr class="sidebar-divider">
+
+<!-- Menu de Administracion -->
+<li class="nav-item">
+
+  <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseUtilitiesCinco" aria-expanded="true" aria-controls="collapseUtilitiesCinco">
+    <i class="fas fa-fw fa-wrench"></i>
+    <span>Admistracion</span>
+  </a>
+  <div id="collapseUtilitiesCinco" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <h6 class="collapse-header">Categorias</h6>
+      <a class="collapse-item" href="Hdron/create">Respaldo</a>            
+      <a class="collapse-item" href="#">Vaciar BD</a>            
+    </div>
+  </div>
+</li>
+@endif
 
       <!-- Heading -->
       <div class="sidebar-heading">

@@ -180,7 +180,7 @@ class SumosController extends Controller
         return redirect()->route('calificar.calSumos')->with('success','Product deleted successfully');
     }
 
-<<<<<<< HEAD
+
 
  public function datos_pdf_a( )
     {
@@ -237,10 +237,7 @@ class SumosController extends Controller
     <th style="border: 1px solid; padding:12px;" width="30%">Nombre de Robot}</th>
     <th style="border: 1px solid; padding:12px;" width="15%">Status</th>
     <th style="border: 1px solid; padding:12px;" width="15%"> Ronda
-    
-   
-
-    
+        
      ';  
      foreach($sumo_data as $lista)
        
@@ -265,9 +262,5 @@ class SumosController extends Controller
 
     }
 
-
-=======
-  
->>>>>>> 6fc27f3e9b4604ab188e427586b0a01d788080a6
 
 }

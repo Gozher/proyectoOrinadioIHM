@@ -4,7 +4,7 @@
 
 	
 
-    <img  class="img-responsive" src="{{ asset ('img/kkk.jpg') }}"> 
+    <img  class="img-responsive" src="{{ asset ('img/kkk.JPG') }}"> 
 
 
 

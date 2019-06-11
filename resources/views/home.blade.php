@@ -2,6 +2,6 @@
 
 @section('content')
 
-hola de nuevo
+<img  class="img-responsive" src="{{ asset ('img/kkk.JPG') }}"> 
 
 @endsection

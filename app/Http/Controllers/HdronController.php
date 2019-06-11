@@ -31,8 +31,25 @@ class HdronController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        $archivo_csv = fopen('FFAM.csv','w');
+
+    if($archivo_csv){
+    fputs($archivo_csv,"id,NombreRobot,NombreCapitan,NombreEquipo,Institucion,Ronda,Tiempo,Status,created_at,updated_at".PHP_EOL);
     }
+
+    $drones = Hdron::get();
+
+    foreach($drones as $dron){
+        fputs($archivo_csv,implode($dron,',').PHP_EOL);
+    }
+    fclose($archivo_csv);
+
+    return redirect()->route('Drones')->with('success','Registro created successfully.');
+  
+}
+
 
     /**
      * Store a newly created resource in storage.
@@ -88,5 +105,7 @@ class HdronController extends Controller
     public function destroy(Hdron $hdron)
     {
         //
+
+
     }
 }
