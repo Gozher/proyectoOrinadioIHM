@@ -148,9 +148,6 @@ $c=0;
 @endif
 
 
-<p> Clic <a href = "{{ route('roles.pdf') }}">
-aqui
-</a> para descargar pdf </p>
 
 </div>
 </div>
