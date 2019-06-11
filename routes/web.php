@@ -66,7 +66,10 @@ Route::resource('Hseguidores','HseguidoresController');
 
 // Sumos Historial 
 
+Route::post('/Hsumos','HsumoController@index');
 Route::resource('Hsumo','HsumoController');
+
+Route::post('/Hminisumos','HminisumoController@index');
 Route::resource('Hminisumo','HminisumoController');
 
 

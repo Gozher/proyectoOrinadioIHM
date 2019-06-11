@@ -13,12 +13,14 @@ class HsumoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $cantidad = $request->input("cantidad");  
           $hsumo_consult = \DB::table('hsumos')
         -> select('NombreRobot','Institucion','id','Status','Ronda','NombreEquipo','NombreCapitan')
-        -> orderBy('Ronda')
+        ->where('Ronda',"=",$cantidad)
+        -> orderBy('NombreRobot')
         -> get(); 
 
         return view('historial.hisSumo', compact('hsumo_consult'));

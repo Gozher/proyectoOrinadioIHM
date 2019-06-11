@@ -13,11 +13,12 @@ class HminisumoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $hminisumo_consult = \DB::table('Hminisumos')
-        -> select('NombreRobot','Institucion','id','Status','Ronda','NombreEquipo')
+        $cantidad = $request->input("cantidad");                            
+        $hminisumo_consult = Hminisumo:: 
+         select('NombreRobot','Institucion','id','Status','Ronda','NombreEquipo')
+        ->where('Ronda',"=",$cantidad)
         -> orderBy('NombreRobot')
         -> get(); 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Minosumos;
+use App\Hminisumo;
 use Illuminate\Http\Request;
 
 class MinisumosController extends Controller
@@ -77,6 +78,18 @@ class MinisumosController extends Controller
     {
         
            $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
+
+
+           
+
+        $hminosumo = new Hminisumo;
+        $hminosumo->Institucion = $request->input('Institucion');
+        $hminosumo->NombreRobot = $request->input('NombreRobot');
+        $hminosumo->NombreEquipo = $request->input('NombreEquipo');
+        $hminosumo->NombreCapitan = $request->input('NombreCapitan');        
+        $hminosumo->Ronda = '0';
+        $hminosumo->Status = 'En competencia';
+        $hminosumo->save();    
         //
         $minosumo = new Minosumos;
         $minosumo->Institucion = $request->input('Institucion');
@@ -132,7 +145,7 @@ class MinisumosController extends Controller
 
 
 
-        $hminisumo = new Minosumos;
+        $hminisumo = new Hminisumo;
         $hminisumo->Institucion = $request->input('Institucion');
         $hminisumo->NombreRobot = $request->input('NombreRobot');
         $hminisumo->NombreEquipo = $request->input('NombreEquipo');

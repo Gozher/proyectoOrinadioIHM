@@ -38,6 +38,7 @@ ini_set('max_execution_time', 300);
                     <th>Id</th>
                     <th>Nombre del robot</th>                
                     <th>Escuela</th>
+                    <th>Ronda</th>
                     <th>Action</th>  
             
                 </tr>
@@ -54,6 +55,7 @@ ini_set('max_execution_time', 300);
                     <td>{{ $lista->id }}</td> 
                     <td>{{ $lista->NombreRobot }}</td> 
                     <td>{{ $lista->Institucion }}</td> 
+                    <td>{{ $lista->Ronda }}</td> 
                     <td>
                     <a class="btn btn-primary" 
                        href="{{ route('Minisumos.edit',$lista->id) }}">Calificar

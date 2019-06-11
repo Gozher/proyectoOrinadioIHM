@@ -81,6 +81,19 @@ class SumosController extends Controller
 
          $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
         //
+
+        $hsumo = new hsumo;
+        $hsumo->Institucion = $request->input('Institucion');
+        $hsumo->NombreRobot = $request->input('NombreRobot');
+        $hsumo->NombreEquipo = $request->input('NombreEquipo');
+        $hsumo->NombreCapitan = $request->input('NombreCapitan');        
+        $hsumo->Ronda = '0';
+        $hsumo->Status = 'En competencia';
+    
+        $hsumo->save(); 
+
+
+
         $sumo = new Sumos;
         $sumo->Institucion = $request->input('Institucion');
         $sumo->NombreRobot = $request->input('NombreRobot');
@@ -135,7 +148,6 @@ class SumosController extends Controller
     public function update(Request $request, $id)
     {
 
-       
 
         $hsumo = new hsumo;
         $hsumo->Institucion = $request->input('Institucion');
@@ -144,8 +156,7 @@ class SumosController extends Controller
         $hsumo->NombreCapitan = $request->input('NombreCapitan');        
         $hsumo->Ronda = $request->input('Ronda');
         $hsumo->Status = $request->input('Status');
-
-     
+    
         $hsumo->save();    
         
 
@@ -169,30 +180,6 @@ class SumosController extends Controller
         return redirect()->route('calificar.calSumos')->with('success','Product deleted successfully');
     }
 
-  public function pdf(Sumos $sumos)
-    {
-        //
-
-        $grupo_a = \DB::table('Sumos')
-        -> select('NombreRobot','Institucion','id','Status','Ronda')
-        -> orderBy('Institucion')
-        -> where ('Status', 'En Competencia')
-        -> get();
-
-
-
-        $grupo_b = \DB::table('Sumos')
-        -> select('NombreRobot','Institucion','id','Status','Ronda')
-        -> orderBy('Institucion')
-        -> where ('Status', 'En Competencia')
-        -> get(); 
-
-
-
-         $pdf = PDF->download 
-
-    }
-
-
+  
 
 }
