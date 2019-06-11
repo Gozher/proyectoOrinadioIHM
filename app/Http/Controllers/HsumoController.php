@@ -16,6 +16,13 @@ class HsumoController extends Controller
     public function index()
     {
         //
+          $hsumo_consult = \DB::table('hsumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda','NombreEquipo','NombreCapitan')
+        -> orderBy('Ronda')
+        -> get(); 
+
+        return view('historial.hisSumo', compact('hsumo_consult'));
+
     }
 
     /**

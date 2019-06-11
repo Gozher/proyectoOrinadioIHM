@@ -131,8 +131,8 @@
         <div id="collapseUtilitiesCuatro" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Categorias</h6>
-            <a class="collapse-item" href="#">ROBOT SUMO</a>
-            <a class="collapse-item" href="#">ROBOT MINISUMO</a>
+            <a class="collapse-item" href="/Hsumo">ROBOT SUMO</a>
+            <a class="collapse-item" href="/Hminisumo">ROBOT MINISUMO</a>
             <a class="collapse-item" href="/Hseguidores">SEGUIDOR DE LINEA</a>
             <a class="collapse-item" href="/Hdron">DRON</a>
           </div>

@@ -16,6 +16,13 @@ class HminisumoController extends Controller
     public function index()
     {
         //
+        $hminisumo_consult = \DB::table('Hminisumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda','NombreEquipo')
+        -> orderBy('NombreRobot')
+        -> get(); 
+
+        return view('historial.hisMinisumo', compact('hminisumo_consult'));
+
     }
 
     /**

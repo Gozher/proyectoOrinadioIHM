@@ -64,6 +64,12 @@ Route::resource('Hdron','HdronController');
 Route::post('/Hseguidor','HseguidoresController@index');
 Route::resource('Hseguidores','HseguidoresController');
 
+// Sumos Historial 
+
+Route::resource('Hsumo','HsumoController');
+Route::resource('Hminisumo','HminisumoController');
+
+
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
