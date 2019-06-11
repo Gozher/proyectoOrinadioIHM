@@ -14,15 +14,19 @@
     
   <div class="form-group">
         <label for="exampleFormControlSelect1"><h5>Nombre del robot</h5></label>
-          <input class="form-control" type="text" name="NombreRobot" value="{{$sumos_data->NombreRobot}}">
+          <input class="form-control" type="text" name="NombreRobot" value="{{$sumos_data->NombreRobot}}" readonly="readonly">
       </div>
 
 
 <div class="form-group">
         <label for="exampleFormControlSelect1"><h5>Nombre del equipo</h5></label>
-          <input class="form-control" type="text" name="NombreEquipo" value="{{$sumos_data->NombreEquipo}}">
+          <input class="form-control" type="text" name="NombreEquipo" value="{{$sumos_data->NombreEquipo}}" readonly="readonly">
       </div>
 
+   <div class="form-group">
+                <label for="formGroupExampleInput">Ronda</label>
+                <input type="Number" min="1" pattern="^[0-9]+" class="form-control" name="Ronda" value="{{$sumos_data->Ronda}}">
+              </div>
 
 
 

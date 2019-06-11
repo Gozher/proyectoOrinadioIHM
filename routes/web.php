@@ -30,7 +30,10 @@ Route::resource('products','ProductController');
 
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> fc4986c3223b256f0ece055f39a66bfe59133c47
 Route::get('/caldrones', 'DronesController@index2');
 
 
@@ -39,7 +42,10 @@ Route::get('/caldrones', 'DronesController@index2')->name('caldrones');
 
 Route::get('/resDrones', 'DronesController@index2');
 Route::post('/resDronesPost', 'DronesController@index2');
+<<<<<<< HEAD
+=======
 
+>>>>>>> fc4986c3223b256f0ece055f39a66bfe59133c47
 Route::resource('Drones','DronesController');
 
 
@@ -49,6 +55,9 @@ Route::get('/resSeguidores','SeguidoresController@index2');
 Route::post('/resSeguidoresPost','SeguidoresController@index2');
 Route::resource('Seguidores','SeguidoresController');
 
+
+
+Route::get('/resSumos','SumosController@index2');
 Route::resource('Sumos','SumosController');
 Route::resource('Minisumos','MinisumosController');
 

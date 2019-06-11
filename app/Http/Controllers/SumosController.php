@@ -14,26 +14,44 @@ class SumosController extends Controller
      */
     public function index()
     {
-        //
-      //  $sumos_data = Sumos::latest()->paginate(5);
-     //   return view('calificar.calSumos',compact('sumos_data'))->with('i', (request()->input('page', 1) - 1) * 5);
 
-
-          $grupo_a = \DB::table('sumos')
-        -> select('NombreRobot','Institucion','id','Status')
+          $grupo_a = \DB::table('Sumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
         -> orderBy('Institucion')
         -> where ('Status', 'En Competencia')
         -> get();
 
 
 
-        $grupo_b = \DB::table('sumos')
-        -> select('NombreRobot','Institucion','id','Status')
+        $grupo_b = \DB::table('Sumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
         -> orderBy('Institucion')
         -> where ('Status', 'En Competencia')
         -> get(); 
 
         return view('calificar.calSumos', compact('grupo_a','grupo_b'));
+
+       
+    }
+
+    public function index2()
+    {
+
+          $grupo_a = \DB::table('Sumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get();
+
+
+
+        $grupo_b = \DB::table('Sumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get(); 
+
+        return view('resultados.resSumo', compact('grupo_a','grupo_b'));
 
        
     }
@@ -65,11 +83,8 @@ class SumosController extends Controller
         $sumo->Institucion = $request->input('Institucion');
         $sumo->NombreRobot = $request->input('NombreRobot');
         $sumo->NombreEquipo = $request->input('NombreEquipo');
-        $sumo->NombreCapitan = $request->input('NombreCapitan');
-        $sumo->Ronda_uno = 'Esperando rondas';
-        $sumo->Ronda_dos = 'Esperando rondas';
-        $sumo->Ronda_tres = 'Esperando rondas';
-        $sumo->Resultado_ronda = 'Esperando rondas';
+        $sumo->NombreCapitan = $request->input('NombreCapitan');        
+        $sumo->Ronda = '0';
         $sumo->Status = 'En competencia';
 
      
@@ -125,6 +140,11 @@ class SumosController extends Controller
     {
         
 
+<<<<<<< HEAD
+        //aqui vas a meter un store
+
+         Sumos::find($id)->update($request->all());
+=======
       // $request->validate( ['id' => 'required'] );
 
      //  $datos_sumo=request();
@@ -133,8 +153,9 @@ class SumosController extends Controller
        //Sumos::find($id)->update($request->all());   
 
         return view('editar.editSumos',compact('sumos_data') );
+>>>>>>> fc4986c3223b256f0ece055f39a66bfe59133c47
 
-         return view('calificar.calSumos');
+        return redirect()->route('Sumos.index')->with('success',' Updated successfully');
 
     }
 

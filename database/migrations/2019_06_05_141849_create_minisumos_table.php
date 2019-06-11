@@ -15,15 +15,14 @@ class CreateMinisumosTable extends Migration
     {
         Schema::create('Minisumos', function (Blueprint $table) {
             $table->increments('id');
+       
             $table->string('NombreRobot');
             $table->string('NombreCapitan');
             $table->string('NombreEquipo');
-            $table->string('Institucion'); 
-            $table->string('Ronda_uno');
-            $table->string('Ronda_dos');
-            $table->string('Ronda_tres');
-            $table->string('Resultado_ronda');
+            $table->string('Institucion');             
+            $table->integer('Ronda');
             $table->string('Status'); 
+             
             $table->timestamps();
 
   });
