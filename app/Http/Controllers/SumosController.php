@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Sumos;
 use App\Hsumo;
+use App\Minosumos;
+use App\Hminisumo;
+use App\Drones;
+use App\Hdron;
+use App\Seguidores;
+use App\Hseguidores;
+
 use Illuminate\Http\Request;
 use PDF; 
 
@@ -173,11 +180,22 @@ class SumosController extends Controller
      * @param  \App\Sumos  $sumos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sumos $sumos)
+    public function destroy( )
     {
         //
-         $product->delete(); 
-        return redirect()->route('calificar.calSumos')->with('success','Product deleted successfully');
+        
+        Sumos::truncate();
+        Hsumo::truncate();
+        Minosumos::truncate();
+        Hminisumo::truncate();
+        Drones::truncate();
+        Hdron::truncate();
+        Seguidores::truncate();
+        Hseguidores::truncate();
+ 
+         return redirect()->route('login')->with('success',' Updated successfully');
+
+
     }
 
 

@@ -77,6 +77,9 @@ Route::resource('Hminisumo','HminisumoController');
 Route::get('/sumo-pdf','SumosController@pdf')->name('roles.pdf');
 
 
+Route::get('/eliminar','SumosController@destroy');
+
+
 
 
 
