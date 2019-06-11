@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Sumos;
 use App\Hsumo;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade as PDF; 
+use PDF; 
 
 class SumosController extends Controller
 {
@@ -169,27 +169,87 @@ class SumosController extends Controller
         return redirect()->route('calificar.calSumos')->with('success','Product deleted successfully');
     }
 
-  public function pdf(Sumos $sumos)
-    {
-        //
 
-        $grupo_a = \DB::table('Sumos')
+ public function datos_pdf_a( )
+    {
+        
+           $grupo_a = \DB::table('Sumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get();
+
+        return $grupo_a;  
+
+    }
+
+
+ public function datos_pdf_b( )
+    {
+        
+           $grupo_b = \DB::table('Sumos')
         -> select('NombreRobot','Institucion','id','Status','Ronda')
         -> orderBy('Institucion')
         -> where ('Status', 'En Competencia')
         -> get();
 
 
+        return $grupo_b;  
 
-        $grupo_b = \DB::table('Sumos')
-        -> select('NombreRobot','Institucion','id','Status','Ronda')
-        -> orderBy('Institucion')
-        -> where ('Status', 'En Competencia')
-        -> get(); 
+    }
 
 
 
-         $pdf = PDF->download 
+  public function pdf(Sumos $sumos)
+    {
+        //
+
+
+
+         $pdf = PDF::loadHTML($this->convert_customer_data_to_html()); 
+
+         return $pdf->download('sumo-roles.pdf'); 
+
+    }
+
+
+    public function convert_customer_data_to_html()
+    {
+     $sumo_data = $this->datos_pdf_a();
+     $sumo_data_b = $this->datos_pdf_b();
+     $output = '
+     <h3 align="center"> Sumos en competencia </h3>
+     <table width="100%" style="border-collapse: collapse; border: 0px;">
+      <tr>
+    <th style="border: 1px solid; padding:12px;" width="20%"> id </th>
+    <th style="border: 1px solid; padding:12px;" width="30%">Nombre de Robot}</th>
+    <th style="border: 1px solid; padding:12px;" width="15%">Status</th>
+    <th style="border: 1px solid; padding:12px;" width="15%"> Ronda
+    
+   
+
+    
+     ';  
+     foreach($sumo_data as $lista)
+       
+     {
+        
+
+      $output .= '
+      <tr>
+       <td style="border: 1px solid; padding:12px;">'.$lista->id.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$lista->NombreRobot.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$lista->Status.'</td>
+       <td style="border: 1px solid; padding:12px;">'.$lista->Ronda.'</td>
+
+      </tr>
+      ';
+
+     }
+        
+
+     $output .= '</table>';
+     return $output;
 
     }
 

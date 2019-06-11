@@ -2,6 +2,10 @@
 
 @section('content')
 
-    Dashboard
+	
+
+    <img  class="img-responsive" src="{{ asset ('img/kkk.jpg') }}"> 
+
+
 
 @endsection('content')
