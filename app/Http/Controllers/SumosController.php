@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Sumos;
 use App\Hsumo;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF; 
 
 class SumosController extends Controller
 {
@@ -171,7 +172,25 @@ class SumosController extends Controller
   public function pdf(Sumos $sumos)
     {
         //
-         return 'exportar ';  
+
+        $grupo_a = \DB::table('Sumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get();
+
+
+
+        $grupo_b = \DB::table('Sumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get(); 
+
+
+
+         $pdf = PDF->download 
+
     }
 
 
