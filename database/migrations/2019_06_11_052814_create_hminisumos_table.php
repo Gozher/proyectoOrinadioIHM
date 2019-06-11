@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMinisumosTable extends Migration
+class CreateHminisumosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateMinisumosTable extends Migration
      */
     public function up()
     {
-        Schema::create('Minisumos', function (Blueprint $table) {
-             $table->increments('id');
+        Schema::create('hminisumos', function (Blueprint $table) {
+           $table->increments('id');
 
             $table->string('NombreRobot');
             $table->string('NombreCapitan');
@@ -24,9 +24,7 @@ class CreateMinisumosTable extends Migration
             $table->string('Status'); 
             
             $table->timestamps();
-
-  });
-
+        });
     }
 
     /**
@@ -36,6 +34,6 @@ class CreateMinisumosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Minisumos');
+        Schema::dropIfExists('hminisumos');
     }
 }

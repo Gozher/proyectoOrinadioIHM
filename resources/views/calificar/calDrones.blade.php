@@ -1,6 +1,18 @@
+
+
 @extends('template.layout')
 
 @section('content')
+
+@if ($message = Session::get('success'))
+
+<div class="alert alert-success">
+
+    <p>{{ $message }}</p>
+
+</div>
+
+@endif
 
 <center> <h1>Calificar de drones</h1></center>
 <hr>

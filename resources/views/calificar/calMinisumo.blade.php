@@ -1,3 +1,4 @@
+
 <?php
 
 ini_set('max_execution_time', 300); 
@@ -21,7 +22,7 @@ ini_set('max_execution_time', 300);
 @endif
 
 
-<h2> <p class="text-center"> Calificar Sumos </p> </h2>
+<h2> <p class="text-center"> Calificar Mini-sumos </p> </h2>
 
 
     <div class="row">
@@ -55,7 +56,7 @@ ini_set('max_execution_time', 300);
                     <td>{{ $lista->Institucion }}</td> 
                     <td>
                     <a class="btn btn-primary" 
-                       href="{{ route('Sumos.edit',$lista->id) }}">Calificar
+                       href="{{ route('Minisumos.edit',$lista->id) }}">Calificar
                     </a> 
                     </td>   
                                  

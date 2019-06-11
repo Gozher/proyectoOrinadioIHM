@@ -15,7 +15,45 @@ class MinisumosController extends Controller
     public function index()
     {
         //
-        return view('resultados.resMinisumo');
+        
+          $grupo_a = \DB::table('Minisumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get();
+
+
+
+        $grupo_b = \DB::table('Minisumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get(); 
+
+        return view('calificar.calMinisumo', compact('grupo_a','grupo_b'));
+    }
+
+
+     public function index2()
+    {
+
+          $grupo_a = \DB::table('Minisumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get();
+
+
+
+        $grupo_b = \DB::table('Minisumos')
+        -> select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get(); 
+
+        return view('resultados.resMinisumo', compact('grupo_a','grupo_b'));
+
+       
     }
 
     /**
@@ -38,24 +76,20 @@ class MinisumosController extends Controller
     public function store(Request $request)
     {
         
-         $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
+           $this->validate($request,[ 'Institucion'=>'required','NombreRobot'=>'required','NombreEquipo'=>'required','NombreCapitan'=>'required']);
         //
-        $minisumo = new Minosumos;
-        $minisumo->Institucion = $request->input('Institucion');
-        $minisumo->NombreRobot = $request->input('NombreRobot');
-        $minisumo->NombreEquipo = $request->input('NombreEquipo');
-        $minisumo->NombreCapitan = $request->input('NombreCapitan');
-        $minisumo->Ronda_uno = 'Esperando rondas';
-        $minisumo->Ronda_dos = 'Esperando rondas';
-        $minisumo->Ronda_tres = 'Esperando rondas';
-        $minisumo->Resultado_ronda = 'Esperando rondas';
-        $minisumo->Status = 'En competencia';
+        $minosumo = new Minosumos;
+        $minosumo->Institucion = $request->input('Institucion');
+        $minosumo->NombreRobot = $request->input('NombreRobot');
+        $minosumo->NombreEquipo = $request->input('NombreEquipo');
+        $minosumo->NombreCapitan = $request->input('NombreCapitan');        
+        $minosumo->Ronda = '0';
+        $minosumo->Status = 'En competencia';
 
      
-        $minisumo->save();    
+        $minosumo->save();    
 
         return redirect()->route('Minisumos.create')->with('success','¡Registro guardado exitosamente! :)');
-
         
     }
 
@@ -68,6 +102,8 @@ class MinisumosController extends Controller
     public function show(Minosumos $minosumos)
     {
         //
+
+         return view('editar.editMinisumos',compact('minisumos'));
     }
 
     /**
@@ -76,9 +112,11 @@ class MinisumosController extends Controller
      * @param  \App\Minosumos  $minosumos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Minosumos $minosumos)
+    public function edit($id)
     {
         //
+        $minisumos_data= Minosumos::findOrFail($id);  
+        return view('editar.editMinisumos',compact('minisumos_data') );
     }
 
     /**
@@ -88,9 +126,26 @@ class MinisumosController extends Controller
      * @param  \App\Minosumos  $minosumos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Minosumos $minosumos)
+    public function update(Request $request, $id)
     {
         //
+
+
+
+        $hminisumo = new Minosumos;
+        $hminisumo->Institucion = $request->input('Institucion');
+        $hminisumo->NombreRobot = $request->input('NombreRobot');
+        $hminisumo->NombreEquipo = $request->input('NombreEquipo');
+        $hminisumo->NombreCapitan = $request->input('NombreCapitan');   
+        $hminisumo->Ronda = $request->input('Ronda');
+        $hminisumo->Status = $request->input('Status');
+
+     
+        $hminisumo->save();  
+
+            Minosumos::find($id)->update($request->all());
+
+            return redirect()->route('Minisumos.index')->with('success',' Updated successfully');
     }
 
     /**
@@ -102,5 +157,7 @@ class MinisumosController extends Controller
     public function destroy(Minosumos $minosumos)
     {
         //
+        $product->delete(); 
+        return redirect()->route('calificar.calMiniumos')->with('success','Product deleted successfully');
     }
 }

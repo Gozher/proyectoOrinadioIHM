@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sumos;
+use App\Hsumo;
 use Illuminate\Http\Request;
 
 class SumosController extends Controller
@@ -90,7 +91,7 @@ class SumosController extends Controller
      
         $sumo->save();    
 
-        return redirect()->route('Sumos.create')->with('success','¡Registro guardado exitosamente! :)');
+        return redirect()->route('Sumos.create')->with('success','¡Registro guardado exitosamente!');
 
 
 
@@ -117,15 +118,9 @@ class SumosController extends Controller
      */
     public function edit($id)
     {
-        //
-
-        //return view('Sumos.show',compact('sumos'));
-
-        
 
         $sumos_data= Sumos::findOrFail($id);  
-
-        return view('editar.editSumos',compact('sumos_data') );
+        return view('editar.editSumos',compact('sumos_data'));
         
     }
 
@@ -138,24 +133,25 @@ class SumosController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+       
+
+        $hsumo = new hsumo;
+        $hsumo->Institucion = $request->input('Institucion');
+        $hsumo->NombreRobot = $request->input('NombreRobot');
+        $hsumo->NombreEquipo = $request->input('NombreEquipo');
+        $hsumo->NombreCapitan = $request->input('NombreCapitan');        
+        $hsumo->Ronda = $request->input('Ronda');
+        $hsumo->Status = $request->input('Status');
+
+     
+        $hsumo->save();    
         
 
-<<<<<<< HEAD
-        //aqui vas a meter un store
+           Sumos::find($id)->update($request->all());  
 
-         Sumos::find($id)->update($request->all());
-=======
-      // $request->validate( ['id' => 'required'] );
-
-     //  $datos_sumo=request();
-       Sumos::where('id','=', $id) ->update($request->except('_token','_method'));  
-       $sumos_data=Sumos::findOrFail($id); 
-       //Sumos::find($id)->update($request->all());   
-
-        return view('editar.editSumos',compact('sumos_data') );
->>>>>>> fc4986c3223b256f0ece055f39a66bfe59133c47
-
-        return redirect()->route('Sumos.index')->with('success',' Updated successfully');
+            return redirect()->route('Sumos.index')->with('success',' Updated successfully');
+            
 
     }
 
