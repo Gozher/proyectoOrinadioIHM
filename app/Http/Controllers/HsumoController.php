@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hsumo;
+use App\Sumos;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -34,7 +35,26 @@ class HsumoController extends Controller
      */
     public function create()
     {
-        //
+        
+        //$grupo_a = \DB::table('Sumos')
+        $grupo_a =Sumos::        
+        select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get();
+
+
+
+        $grupo_b = Sumos::
+        select('NombreRobot','Institucion','id','Status','Ronda')
+        -> orderBy('Institucion')
+        -> where ('Status', 'En Competencia')
+        -> get(); 
+
+        return view('resultados.resSumo', compact('grupo_a','grupo_b'));
+
+
+
     }
 
     /**

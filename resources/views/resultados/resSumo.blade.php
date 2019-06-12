@@ -148,6 +148,12 @@ $c=0;
 @endif
 
 
+<div class="col-sm-2">
+    <br><br>    
+    <a class="btn btn-primary"  href="/Hsumo/create">Refrescar</a>     
+  </div>
+
+
 
 </div>
 </div>

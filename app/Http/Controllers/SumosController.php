@@ -49,7 +49,7 @@ class SumosController extends Controller
           $grupo_a = \DB::table('Sumos')
         -> select('NombreRobot','Institucion','id','Status','Ronda')
         -> orderBy('Institucion')
-        -> where ('Status', 'En Competencia')
+        //-> where ('Status', 'En Competencia')
         -> get();
 
 
@@ -57,7 +57,7 @@ class SumosController extends Controller
         $grupo_b = \DB::table('Sumos')
         -> select('NombreRobot','Institucion','id','Status','Ronda')
         -> orderBy('Institucion')
-        -> where ('Status', 'En Competencia')
+        //-> where ('Status', 'En Competencia')
         -> get(); 
 
         return view('resultados.resSumo', compact('grupo_a','grupo_b'));

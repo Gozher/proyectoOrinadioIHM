@@ -164,7 +164,7 @@
     <div class="bg-white py-2 collapse-inner rounded">
       <h6 class="collapse-header">Categorias</h6>
       <a class="collapse-item" href="#">Respaldo</a>            
-      <a class="collapse-item" href="/eliminar">Vaciar BD</a>            
+      <a class="collapse-item" href="/eliminar" onclick="return confirm('estas seguro.?')">Vaciar BD</a>            
     </div>
   </div>
 </li>
